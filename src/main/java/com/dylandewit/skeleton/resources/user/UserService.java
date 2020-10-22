@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService extends BaseService<User, ViewUserDto, CreateUserDto> {
@@ -30,7 +31,11 @@ public class UserService extends BaseService<User, ViewUserDto, CreateUserDto> {
         return user;
     }
 
-    public User findFirstByUsername(String username) {
+    public Optional<User> findFirstByUsername(String username) {
         return userRepository.findFirstByUsername(username);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 }

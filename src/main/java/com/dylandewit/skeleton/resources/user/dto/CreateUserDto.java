@@ -1,5 +1,6 @@
 package com.dylandewit.skeleton.resources.user.dto;
 
+import com.dylandewit.skeleton.annotations.UniqueEmail;
 import com.dylandewit.skeleton.resources.BaseCreateDto;
 import com.dylandewit.skeleton.resources.user.model.User;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class CreateUserDto extends BaseCreateDto<User> {
     @Size(max = 255)
     private String name;
 
+    @UniqueEmail
     @Size(max = 255)
     private String email;
 

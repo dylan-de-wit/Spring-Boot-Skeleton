@@ -6,4 +6,4 @@ This is my own "skeleton" project. The intend is that this will be the basis of 
 - Exception handling
 - Easy integration test builder with abstraction layer doing all the work
 - Automatic API documentation with the integration test builder
-- Easy endpoint relation handling And more :D
+- Easy endpoint relation handling and more :D
