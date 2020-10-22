@@ -3,5 +3,7 @@ This is my own "skeleton" project. The intend is that this will be the basis of 
 - An abstract layer that will allow easy CRUD resource additions without much boilerplate 
 - Sorting and pagination 
 - Authentication using something like OKTA 
-- Exception handling 
+- Exception handling
+- Easy integration test builder with abstraction layer doing all the work
+- Automatic API documentation with the integration test builder
 - Easy endpoint relation handling And more :D

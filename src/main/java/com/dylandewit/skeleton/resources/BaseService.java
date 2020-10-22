@@ -1,5 +1,6 @@
 package com.dylandewit.skeleton.resources;
 
+import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -30,7 +31,7 @@ public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseView
     }
 
     public T find(Long id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 
     public VIEW_DTO update(Long id, CREATE_DTO dto, List<String> includes) {
