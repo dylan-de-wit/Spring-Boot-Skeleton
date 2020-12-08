@@ -1,6 +1,4 @@
-package com.dylandewit.skeleton.annotations;
-
-import com.dylandewit.skeleton.annotations.validators.UniqueEmailValidator;
+package com.dylandewit.skeleton.annotations.unique_email;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

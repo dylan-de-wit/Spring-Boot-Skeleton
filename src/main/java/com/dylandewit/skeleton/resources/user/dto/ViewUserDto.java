@@ -5,19 +5,17 @@ import com.dylandewit.skeleton.resources.user.model.User;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @Setter
 public class ViewUserDto extends BaseViewDto<User> {
 
-    private Long id;
-    private String name;
     private String email;
     private String username;
-    private LocalDateTime createdOn;
-    private LocalDateTime updatedOn;
+    private String firstName;
+    private String lastName;
+
 
     // @JsonInclude(Include.NON_NULL)
     // private RoleViewDto role;
@@ -25,16 +23,14 @@ public class ViewUserDto extends BaseViewDto<User> {
     public ViewUserDto(User user, List<String> includes) {
         super(user, includes);
 
-        this.id = user.getId();
-        this.name = user.getName();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
         this.email = user.getEmail();
         this.username = user.getUsername();
-        this.createdOn = user.getCreatedOn();
-        this.updatedOn = user.getUpdatedOn();
 
         // if (includes.contains("role")) {
-            // include role
-            // pass includes to role dto: includes.contains("role.permissions")
+        // include role
+        // pass includes to role dto: includes.contains("role.permissions")
         // }
     }
 }

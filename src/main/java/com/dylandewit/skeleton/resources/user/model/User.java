@@ -1,16 +1,12 @@
 package com.dylandewit.skeleton.resources.user.model;
 
 import com.dylandewit.skeleton.resources.BaseModel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Entity
@@ -18,26 +14,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-@EntityListeners(AuditingEntityListener.class)
-public class User implements BaseModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "name", columnDefinition = "NVARCHAR(255)")
-    private String name;
-
-    @Column(name = "email", columnDefinition = "NVARCHAR(255)")
+@Where(clause = "active = true")
+@SQLDelete(sql = "UPDATE users SET active = false WHERE id = ?")
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
+public class User extends BaseModel {
+    private String firstName;
+    private String lastName;
     private String email;
-
-    @Column(name = "username", columnDefinition = "NVARCHAR(50)")
     private String username;
-
-    @CreatedDate
-    @Column(name = "created_on")
-    private LocalDateTime createdOn;
-
-    @LastModifiedDate
-    @Column(name = "updated_on")
-    private LocalDateTime updatedOn;
 }

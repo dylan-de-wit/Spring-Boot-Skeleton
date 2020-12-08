@@ -1,6 +1,5 @@
-package com.dylandewit.skeleton.annotations.validators;
+package com.dylandewit.skeleton.annotations.unique_email;
 
-import com.dylandewit.skeleton.annotations.UniqueEmail;
 import com.dylandewit.skeleton.resources.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
