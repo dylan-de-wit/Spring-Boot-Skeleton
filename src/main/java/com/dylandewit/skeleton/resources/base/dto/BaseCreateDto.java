@@ -1,4 +1,4 @@
-package com.dylandewit.skeleton.resources;
+package com.dylandewit.skeleton.resources.base.dto;
 
 import lombok.Data;
 

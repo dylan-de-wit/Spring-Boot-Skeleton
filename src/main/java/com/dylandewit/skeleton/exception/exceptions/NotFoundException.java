@@ -7,6 +7,10 @@ public class NotFoundException extends BaseException {
         this(id, "item");
     }
 
+    public NotFoundException(String name) {
+        super(name + " does not exist", HttpStatus.NOT_FOUND);
+    }
+
     public NotFoundException(Long id, String className) {
         super("Requested " + className + " with id: " + id + " does not exist", HttpStatus.NOT_FOUND);
     }

@@ -1,10 +1,11 @@
-package com.dylandewit.skeleton.resources.user.model;
+package com.dylandewit.skeleton.resources.user.models;
 
-import com.dylandewit.skeleton.resources.BaseModel;
+import com.dylandewit.skeleton.resources.base.models.BaseModel;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -22,5 +23,7 @@ public class User extends BaseModel {
     private String firstName;
     private String lastName;
     private String email;
+
+    @Column(unique = true)
     private String username;
 }

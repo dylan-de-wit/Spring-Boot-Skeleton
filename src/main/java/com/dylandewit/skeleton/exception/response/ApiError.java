@@ -17,7 +17,6 @@ public class ApiError {
 
     private String debugMessage;
 
-
     public ApiError(HttpStatus status, Throwable ex) {
         this(status, "Unexpected error", ex);
     }

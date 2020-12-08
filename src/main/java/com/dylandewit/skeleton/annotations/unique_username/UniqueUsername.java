@@ -1,4 +1,4 @@
-package com.dylandewit.skeleton.annotations.unique_email;
+package com.dylandewit.skeleton.annotations.unique_username;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -11,9 +11,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({FIELD, METHOD, PARAMETER, ANNOTATION_TYPE, TYPE_USE})
 @Retention(RUNTIME)
-@Constraint(validatedBy = UniqueEmailValidator.class)
+@Constraint(validatedBy = UniqueUsernameValidator.class)
 @Documented
-public @interface UniqueEmail {
+public @interface UniqueUsername {
 
     String message() default "should be unique";
 

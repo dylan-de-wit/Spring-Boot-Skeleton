@@ -1,6 +1,9 @@
-package com.dylandewit.skeleton.resources;
+package com.dylandewit.skeleton.resources.base;
 
 import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
+import com.dylandewit.skeleton.resources.base.dto.BaseCreateDto;
+import com.dylandewit.skeleton.resources.base.dto.BaseViewDto;
+import com.dylandewit.skeleton.resources.base.models.BaseModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -42,6 +45,10 @@ public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseView
 
     public VIEW_DTO create(CREATE_DTO dto, List<String> includes) {
         return mapToDto(repository.save(mapForCreate(dto)), includes);
+    }
+
+    public void delete(Long id) {
+        repository.delete(find(id));
     }
 
     protected T mapForCreate(CREATE_DTO dto) {

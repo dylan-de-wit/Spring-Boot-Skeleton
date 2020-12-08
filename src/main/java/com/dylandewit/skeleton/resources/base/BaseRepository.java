@@ -1,5 +1,6 @@
-package com.dylandewit.skeleton.resources;
+package com.dylandewit.skeleton.resources.base;
 
+import com.dylandewit.skeleton.resources.base.models.BaseModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.NoRepositoryBean;

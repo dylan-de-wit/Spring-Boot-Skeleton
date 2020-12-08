@@ -1,4 +1,4 @@
-package com.dylandewit.skeleton.annotations.unique_email;
+package com.dylandewit.skeleton.annotations.unique_username;
 
 import com.dylandewit.skeleton.resources.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,17 +8,17 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 @Component
-public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
+public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername, String> {
 
     private final UserService userService;
 
     @Autowired
-    public UniqueEmailValidator(UserService userService) {
+    public UniqueUsernameValidator(UserService userService) {
         this.userService = userService;
     }
 
     @Override
-    public boolean isValid(String email, ConstraintValidatorContext constraintValidatorContext) {
-        return email == null || userService.existsByEmail(email);
+    public boolean isValid(String username, ConstraintValidatorContext constraintValidatorContext) {
+        return username == null || userService.existsByUsername(username);
     }
 }

@@ -7,3 +7,5 @@ This is my own "skeleton" project. The intend is that this will be the basis of 
 - Easy integration test builder with abstraction layer doing all the work
 - Automatic API documentation with the integration test builder
 - Easy endpoint relation handling and more :D
+
+(http://localhost:8080/api/swagger-ui)

@@ -1,5 +1,6 @@
-package com.dylandewit.skeleton.resources;
+package com.dylandewit.skeleton.resources.base.dto;
 
+import com.dylandewit.skeleton.resources.base.models.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,9 +16,7 @@ public abstract class BaseViewDto<T extends BaseModel> {
     private LocalDateTime updatedOn;
 
     public BaseViewDto(T t, List<String> includes) {
-        if (t == null) {
-            throw new IllegalArgumentException("First parameter in BaseViewDto may not be null");
-        }
+        if (t == null) throw new IllegalArgumentException("First parameter in BaseViewDto may not be null");
 
         this.id = t.getId();
         this.createdBy = t.getCreatedBy();
