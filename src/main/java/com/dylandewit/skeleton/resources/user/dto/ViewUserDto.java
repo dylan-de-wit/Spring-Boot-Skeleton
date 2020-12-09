@@ -2,7 +2,9 @@ package com.dylandewit.skeleton.resources.user.dto;
 
 import com.dylandewit.skeleton.helpers.IncludesHelper;
 import com.dylandewit.skeleton.resources.base.dto.BaseViewDto;
+import com.dylandewit.skeleton.resources.role.dto.ViewRoleDto;
 import com.dylandewit.skeleton.resources.user.models.User;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +19,8 @@ public class ViewUserDto extends BaseViewDto<User> {
     private String firstName;
     private String lastName;
 
-    // @JsonInclude(Include.NON_NULL)
-    // private RoleViewDto role;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private ViewRoleDto role;
 
     public ViewUserDto(User user, List<String> includes) {
         super(user, includes);
@@ -30,6 +32,6 @@ public class ViewUserDto extends BaseViewDto<User> {
         this.username = user.getUsername();
 
         if (IncludesHelper.hasInclude(includes, "role"))
-            System.out.println("hoi"); // this.role = new ViewRoleDto(user.getRole(), includes)
+            this.role = new ViewRoleDto(user.getRole(), includes);
     }
 }

@@ -2,6 +2,8 @@ package com.dylandewit.skeleton.seeders;
 
 
 import com.dylandewit.skeleton.resources.base.seeders.Seeder;
+import com.dylandewit.skeleton.resources.permission.seeders.PermissionSeeder;
+import com.dylandewit.skeleton.resources.role.seeders.RoleSeeder;
 import com.dylandewit.skeleton.resources.user.seeders.FakeUserSeeder;
 import com.dylandewit.skeleton.resources.user.seeders.UserSeeder;
 import lombok.extern.slf4j.Slf4j;
@@ -24,13 +26,15 @@ public class DatabaseSeeder {
     @Autowired
     public DatabaseSeeder(@Value("${com.dylandewit.skeleton.seed-necessary-data}") boolean seedNecessary,
                           @Value("${com.dylandewit.skeleton.seed-fake-data}") boolean seedFake,
+                          PermissionSeeder permissionSeeder,
+                          RoleSeeder roleSeeder,
                           UserSeeder userSeeder,
                           FakeUserSeeder fakeUserSeeder) {
         if (seedFake)
             fakeDataSeeders.addAll(List.of(fakeUserSeeder));
 
         if (seedNecessary)
-            necessarySeeders.addAll(List.of(userSeeder));
+            necessarySeeders.addAll(List.of(permissionSeeder, roleSeeder, userSeeder));
     }
 
     @Transactional

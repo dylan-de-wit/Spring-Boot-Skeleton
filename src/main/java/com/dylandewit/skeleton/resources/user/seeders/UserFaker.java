@@ -10,6 +10,6 @@ public class UserFaker implements FakerContract<User> {
     public User make() {
         Faker faker = new Faker();
 
-        return new User(faker.name().firstName(), faker.name().lastName(), faker.internet().emailAddress(), faker.name().username());
+        return new User(faker.name().firstName(), faker.name().lastName(), faker.internet().emailAddress(), faker.name().username(), null);
     }
 }

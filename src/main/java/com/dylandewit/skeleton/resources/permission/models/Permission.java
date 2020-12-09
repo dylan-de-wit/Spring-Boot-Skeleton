@@ -1,4 +1,4 @@
-package com.dylandewit.skeleton.resources.user.models;
+package com.dylandewit.skeleton.resources.permission.models;
 
 import com.dylandewit.skeleton.resources.base.models.BaseModel;
 import com.dylandewit.skeleton.resources.role.models.Role;
@@ -7,26 +7,23 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "permissions")
 @Where(clause = "active = true")
-@SQLDelete(sql = "UPDATE users SET active = false WHERE id = ?")
+@SQLDelete(sql = "UPDATE permissions SET active = false WHERE id = ?")
 @ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
-public class User extends BaseModel {
-    private String firstName;
-    private String lastName;
-    private String email;
-
+public class Permission extends BaseModel {
     @Column(unique = true)
-    private String username;
+    private Permissions name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "permissions")
+    private Set<Role> roles = new HashSet<>();
 }

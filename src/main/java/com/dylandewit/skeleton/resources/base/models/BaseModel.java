@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @EntityListeners({AuditingEntityListener.class})
-public abstract class BaseModel implements Serializable {
+public abstract class BaseModel implements Serializable, Comparable<BaseModel> {
     @Id
     @ToString.Include
     @EqualsAndHashCode.Include
@@ -36,4 +36,12 @@ public abstract class BaseModel implements Serializable {
 
     @LastModifiedDate
     protected LocalDateTime updatedOn;
+
+    @Override
+    public int compareTo(BaseModel o) {
+        if (o == null) throw new IllegalArgumentException("Object should not be null while comparing");
+        if (o.id == null) throw new IllegalArgumentException("Id should not be null while comparing");
+
+        return o.id.compareTo(id);
+    }
 }
