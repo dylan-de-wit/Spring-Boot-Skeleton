@@ -1,6 +1,6 @@
 package com.dylandewit.skeleton.integration.seeders;
 
-import com.dylandewit.skeleton.resources.base.models.BaseModel;
+import com.dylandewit.skeleton.api.base.models.BaseModel;
 
 import java.util.List;
 

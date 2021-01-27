@@ -2,8 +2,8 @@ package com.dylandewit.skeleton.integration;
 
 import com.dylandewit.skeleton.integration.documentation.UserDocumentation;
 import com.dylandewit.skeleton.integration.seeders.UserTestSeeder;
-import com.dylandewit.skeleton.resources.permission.models.Permissions;
-import com.dylandewit.skeleton.resources.user.models.User;
+import com.dylandewit.skeleton.api.permission.models.Permissions;
+import com.dylandewit.skeleton.api.user.models.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

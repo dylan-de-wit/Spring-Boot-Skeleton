@@ -1,6 +1,6 @@
 package com.dylandewit.skeleton.integration.helpers;
 
-import com.dylandewit.skeleton.resources.permission.models.Permissions;
+import com.dylandewit.skeleton.api.permission.models.Permissions;
 import org.mockito.Mockito;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
