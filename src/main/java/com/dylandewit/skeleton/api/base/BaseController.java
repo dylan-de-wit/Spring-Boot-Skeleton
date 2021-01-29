@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @ApiResponses(value = {
         @ApiResponse(code = 403, message = "Forbidden", response = ApiError.class),
         @ApiResponse(code = 401, message = "Unauthorized", response = ApiError.class)
