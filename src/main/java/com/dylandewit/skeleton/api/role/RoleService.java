@@ -9,13 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RoleService extends BaseService<Role, ViewRoleDto, CreateRoleDto> {
-    private final RoleRepository roleRepository;
 
     @Autowired
     public RoleService(RoleRepository roleRepository) {
         super(roleRepository);
-
-        this.roleRepository = roleRepository;
     }
 
     @Override

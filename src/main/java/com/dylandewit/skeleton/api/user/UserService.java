@@ -32,7 +32,7 @@ public class UserService extends BaseService<User, ViewUserDto, CreateUserDto> {
     public User findFirstByUsername(String username) {
         return userRepository.findFirstByUsername(username).orElseThrow(() -> new NotFoundException(username));
     }
-    
+
     public boolean existsByUsername(String username) {
         return userRepository.existsByUsername(username);
     }

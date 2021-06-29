@@ -29,27 +29,27 @@ public abstract class BaseController<T extends BaseModel, VIEW_DTO extends BaseV
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Page<VIEW_DTO> findAll(@RequestParam(name = "ids", required = false) List<Long> ids, Pageable pageable) {
         if (ids != null) {
-            return service.findByIds(ids, pageable);
+            return service.findByIds(ids, pageable).map(service::mapToDto);
         }
 
-        return service.findAll(pageable);
+        return service.findAll(pageable).map(service::mapToDto);
     }
 
     @ApiResponse(code = 404, message = "Not found", response = ApiError.class)
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public VIEW_DTO findById(@PathVariable Long id) {
-        return service.findById(id);
+        return service.mapToDto(service.findById(id));
     }
 
     @ApiResponse(code = 404, message = "Not found", response = ApiError.class)
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public VIEW_DTO update(@PathVariable Long id, @RequestBody @Valid CREATE_DTO body) {
-        return service.update(id, body);
+        return service.mapToDto(service.update(id, body));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public VIEW_DTO create(@RequestBody @Valid CREATE_DTO body) {
-        return service.create(body);
+        return service.mapToDto(service.create(body));
     }
 
     @ApiResponse(code = 404, message = "Not found", response = ApiError.class)

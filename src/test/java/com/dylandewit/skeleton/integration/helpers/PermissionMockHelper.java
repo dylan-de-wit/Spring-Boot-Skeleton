@@ -19,7 +19,7 @@ public class PermissionMockHelper {
     public static void setupMockUser(UserDetailsService userDetailsService, List<SimpleGrantedAuthority> authorities, String username) {
         Mockito.when(userDetailsService.loadUserByUsername(any()))
                 .thenReturn(new org.springframework.security.core.userdetails.User(
-                        username,
+                                username,
                                 "test",
                                 true,
                                 true,

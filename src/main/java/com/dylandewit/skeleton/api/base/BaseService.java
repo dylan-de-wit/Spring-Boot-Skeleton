@@ -17,38 +17,38 @@ public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseView
         this.repository = repository;
     }
 
-    public Page<VIEW_DTO> findAll(Pageable pageable) {
-        return repository.findAll(pageable).map(this::mapToDto);
+    public Page<T> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
-    public VIEW_DTO findById(Long id) {
-        return mapToDto(find(id));
+    public Set<T> findAll() {
+        return repository.findAll();
     }
 
-    public Page<VIEW_DTO> findByIds(List<Long> ids, Pageable pageable) {
-        return repository.findAllByIdIn(ids, pageable).map(this::mapToDto);
+    public Page<T> findByIds(List<Long> ids, Pageable pageable) {
+        return repository.findAllByIdIn(ids, pageable);
     }
 
-    public Set<T> find(List<Long> ids) {
+    public Set<T> findByIds(List<Long> ids) {
         return repository.findAllByIdIn(ids);
     }
 
-    public T find(Long id) {
+    public T findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 
-    public VIEW_DTO update(Long id, CREATE_DTO dto) {
-        T t = mapForUpdate(find(id), dto);
+    public T update(Long id, CREATE_DTO dto) {
+        T t = mapForUpdate(findById(id), dto);
 
-        return mapToDto(repository.save(t));
+        return repository.save(t);
     }
 
-    public VIEW_DTO create(CREATE_DTO dto) {
-        return mapToDto(repository.save(mapForCreate(dto)));
+    public T create(CREATE_DTO dto) {
+        return repository.save(mapForCreate(dto));
     }
 
     public void delete(Long id) {
-        repository.delete(find(id));
+        repository.delete(findById(id));
     }
 
     protected T mapForCreate(CREATE_DTO dto) {

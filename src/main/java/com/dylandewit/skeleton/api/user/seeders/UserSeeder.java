@@ -1,10 +1,10 @@
 package com.dylandewit.skeleton.api.user.seeders;
 
-import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
 import com.dylandewit.skeleton.api.base.seeders.Seeder;
 import com.dylandewit.skeleton.api.role.RoleRepository;
 import com.dylandewit.skeleton.api.user.UserRepository;
 import com.dylandewit.skeleton.api.user.models.User;
+import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

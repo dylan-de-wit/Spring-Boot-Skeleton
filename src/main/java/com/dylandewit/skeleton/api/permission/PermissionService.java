@@ -10,13 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PermissionService extends BaseService<Permission, ViewPermissionDto, CreatePermissionDto> {
-    private final PermissionRepository permissionRepository;
 
     @Autowired
     public PermissionService(PermissionRepository permissionRepository) {
         super(permissionRepository);
-
-        this.permissionRepository = permissionRepository;
     }
 
     @Override

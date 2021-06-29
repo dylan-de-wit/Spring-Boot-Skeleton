@@ -13,4 +13,6 @@ public interface BaseRepository<T extends BaseModel> extends PagingAndSortingRep
     Set<T> findAllByIdIn(Iterable<Long> ids);
 
     Page<T> findAllByIdIn(Iterable<Long> ids, Pageable pageable);
+
+    Set<T> findAll();
 }
