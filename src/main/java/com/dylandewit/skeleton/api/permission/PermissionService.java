@@ -8,8 +8,6 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class PermissionService extends BaseService<Permission, ViewPermissionDto, CreatePermissionDto> {
     private final PermissionRepository permissionRepository;
@@ -22,8 +20,8 @@ public class PermissionService extends BaseService<Permission, ViewPermissionDto
     }
 
     @Override
-    protected ViewPermissionDto mapToDto(Permission permission, List<String> includes) {
-        return new ViewPermissionDto(permission, includes);
+    protected ViewPermissionDto mapToDto(Permission permission) {
+        return new ViewPermissionDto(permission);
     }
 
     @Override

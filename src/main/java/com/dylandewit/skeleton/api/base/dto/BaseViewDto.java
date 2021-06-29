@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +14,7 @@ public abstract class BaseViewDto<T extends BaseModel> {
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 
-    public BaseViewDto(T t, List<String> includes) {
+    public BaseViewDto(T t) {
         if (t == null) throw new IllegalArgumentException("First parameter in BaseViewDto may not be null");
 
         this.id = t.getId();

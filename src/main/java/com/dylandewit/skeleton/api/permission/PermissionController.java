@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @Api(tags = "Permissions", description = "All permission related endpoints")
@@ -27,13 +26,13 @@ public class PermissionController extends BaseController<Permission, ViewPermiss
 
     @Override
     @ApiIgnore
-    public ViewPermissionDto update(Long id, @Valid CreatePermissionDto body, List<String> includes) {
+    public ViewPermissionDto update(Long id, @Valid CreatePermissionDto body) {
         throw new NotImplementedException();
     }
 
     @Override
     @ApiIgnore
-    public ViewPermissionDto create(@Valid CreatePermissionDto body, List<String> includes) {
+    public ViewPermissionDto create(@Valid CreatePermissionDto body) {
         throw new NotImplementedException();
     }
 

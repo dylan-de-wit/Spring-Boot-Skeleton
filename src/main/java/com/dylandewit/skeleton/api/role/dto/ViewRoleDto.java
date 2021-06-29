@@ -1,6 +1,5 @@
 package com.dylandewit.skeleton.api.role.dto;
 
-import com.dylandewit.skeleton.helpers.IncludesHelper;
 import com.dylandewit.skeleton.api.base.dto.BaseViewDto;
 import com.dylandewit.skeleton.api.permission.dto.ViewPermissionDto;
 import com.dylandewit.skeleton.api.role.models.Role;
@@ -9,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,17 +22,15 @@ public class ViewRoleDto extends BaseViewDto<Role> {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Set<ViewPermissionDto> permissions;
 
-    public ViewRoleDto(Role role, List<String> includes) {
-        super(role, includes);
-        List<String> finalIncludes = IncludesHelper.fetchNestedIncludes(includes, "role");
+    public ViewRoleDto(Role role) {
+        super(role);
 
         this.name = role.getName();
         this.description = role.getDescription();
 
-        if (IncludesHelper.hasInclude(finalIncludes, "permission"))
-            this.permissions = role.getPermissions().stream()
-                    .map(p -> new ViewPermissionDto(p, finalIncludes))
-                    .collect(Collectors.toSet());
+        this.permissions = role.getPermissions().stream()
+                .map(ViewPermissionDto::new)
+                .collect(Collectors.toSet());
 
     }
 }

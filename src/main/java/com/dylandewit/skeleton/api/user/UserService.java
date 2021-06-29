@@ -1,14 +1,12 @@
 package com.dylandewit.skeleton.api.user;
 
-import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
 import com.dylandewit.skeleton.api.base.BaseService;
 import com.dylandewit.skeleton.api.user.dto.CreateUserDto;
 import com.dylandewit.skeleton.api.user.dto.ViewUserDto;
 import com.dylandewit.skeleton.api.user.models.User;
+import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService extends BaseService<User, ViewUserDto, CreateUserDto> {
@@ -22,8 +20,8 @@ public class UserService extends BaseService<User, ViewUserDto, CreateUserDto> {
     }
 
     @Override
-    protected ViewUserDto mapToDto(User user, List<String> includes) {
-        return new ViewUserDto(user, includes);
+    protected ViewUserDto mapToDto(User user) {
+        return new ViewUserDto(user);
     }
 
     @Override
