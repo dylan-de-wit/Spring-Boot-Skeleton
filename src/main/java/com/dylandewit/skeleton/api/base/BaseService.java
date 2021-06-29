@@ -10,40 +10,40 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Set;
 
-public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseGetDto<T>, CREATE_DTO extends BasePostDto<T>> {
-    protected final BaseRepository<T> repository;
+public abstract class BaseService<ENTITY extends BaseModel, GET_DTO extends BaseGetDto<ENTITY>, POST_DTO extends BasePostDto<ENTITY>> {
+    protected final BaseRepository<ENTITY> repository;
 
-    protected BaseService(BaseRepository<T> repository) {
+    protected BaseService(BaseRepository<ENTITY> repository) {
         this.repository = repository;
     }
 
-    public Page<T> findAll(Pageable pageable) {
+    public Page<ENTITY> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    public Set<T> findAll() {
+    public Set<ENTITY> findAll() {
         return repository.findAll();
     }
 
-    public Page<T> findByIds(List<Long> ids, Pageable pageable) {
+    public Page<ENTITY> findByIds(List<Long> ids, Pageable pageable) {
         return repository.findAllByIdIn(ids, pageable);
     }
 
-    public Set<T> findByIds(List<Long> ids) {
+    public Set<ENTITY> findByIds(List<Long> ids) {
         return repository.findAllByIdIn(ids);
     }
 
-    public T findById(Long id) {
+    public ENTITY findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 
-    public T update(Long id, CREATE_DTO dto) {
-        T t = mapForUpdate(findById(id), dto);
+    public ENTITY update(Long id, POST_DTO dto) {
+        ENTITY t = mapForUpdate(findById(id), dto);
 
         return repository.save(t);
     }
 
-    public T create(CREATE_DTO dto) {
+    public ENTITY create(POST_DTO dto) {
         return repository.save(mapForCreate(dto));
     }
 
@@ -51,11 +51,11 @@ public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseGetD
         repository.delete(findById(id));
     }
 
-    protected T mapForCreate(CREATE_DTO dto) {
+    protected ENTITY mapForCreate(POST_DTO dto) {
         return dto.toModel();
     }
 
-    protected abstract VIEW_DTO mapToDto(T t);
+    protected abstract GET_DTO mapToDto(ENTITY t);
 
-    protected abstract T mapForUpdate(T t, CREATE_DTO dto);
+    protected abstract ENTITY mapForUpdate(ENTITY t, POST_DTO dto);
 }
