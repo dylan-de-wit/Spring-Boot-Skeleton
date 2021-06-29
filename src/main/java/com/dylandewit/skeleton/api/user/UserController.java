@@ -1,5 +1,6 @@
 package com.dylandewit.skeleton.api.user;
 
+import com.dylandewit.skeleton.annotations.current_user.CurrentUser;
 import com.dylandewit.skeleton.api.base.BaseController;
 import com.dylandewit.skeleton.api.user.dto.UserGetDto;
 import com.dylandewit.skeleton.api.user.dto.UserPostDto;
@@ -25,7 +26,7 @@ public class UserController extends BaseController<User, UserGetDto, UserPostDto
 
     @ApiResponse(code = 404, message = "Not found", response = ApiError.class)
     @GetMapping(value = "/me", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserGetDto findMe(/*@CurrentUser User user*/) {
+    public UserGetDto findMe(@CurrentUser User user) {
         return new UserGetDto(null);
     }
 }
