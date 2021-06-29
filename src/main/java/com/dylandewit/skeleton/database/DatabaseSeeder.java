@@ -44,13 +44,8 @@ public class DatabaseSeeder {
             return;
 
         log.info("Seeding database...");
-
-        if (!necessarySeeders.isEmpty())
-            seed(necessarySeeders, "Seeding necessary data...");
-
-        if (!fakeDataSeeders.isEmpty())
-            seed(fakeDataSeeders, "Seeding fake data...");
-
+        seed(necessarySeeders, "Seeding necessary data...");
+        seed(fakeDataSeeders, "Seeding fake data...");
         log.info("Done seeding...");
     }
 
