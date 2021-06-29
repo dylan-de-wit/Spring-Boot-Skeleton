@@ -1,7 +1,7 @@
 package com.dylandewit.skeleton.api.base;
 
-import com.dylandewit.skeleton.api.base.dto.BaseCreateDto;
-import com.dylandewit.skeleton.api.base.dto.BaseViewDto;
+import com.dylandewit.skeleton.api.base.dto.BaseGetDto;
+import com.dylandewit.skeleton.api.base.dto.BasePostDto;
 import com.dylandewit.skeleton.api.base.models.BaseModel;
 import com.dylandewit.skeleton.api.base.models.OkResponse;
 import com.dylandewit.skeleton.exception.response.ApiError;
@@ -19,7 +19,7 @@ import java.util.List;
         @ApiResponse(code = 403, message = "Forbidden", response = ApiError.class),
         @ApiResponse(code = 401, message = "Unauthorized", response = ApiError.class)
 })
-public abstract class BaseController<T extends BaseModel, VIEW_DTO extends BaseViewDto<T>, CREATE_DTO extends BaseCreateDto<T>> {
+public abstract class BaseController<T extends BaseModel, VIEW_DTO extends BaseGetDto<T>, CREATE_DTO extends BasePostDto<T>> {
     protected final BaseService<T, VIEW_DTO, CREATE_DTO> service;
 
     public BaseController(BaseService<T, VIEW_DTO, CREATE_DTO> service) {

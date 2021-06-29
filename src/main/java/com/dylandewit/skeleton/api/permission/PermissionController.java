@@ -2,8 +2,8 @@ package com.dylandewit.skeleton.api.permission;
 
 import com.dylandewit.skeleton.api.base.BaseController;
 import com.dylandewit.skeleton.api.base.models.OkResponse;
-import com.dylandewit.skeleton.api.permission.dto.CreatePermissionDto;
-import com.dylandewit.skeleton.api.permission.dto.ViewPermissionDto;
+import com.dylandewit.skeleton.api.permission.dto.PermissionGetDto;
+import com.dylandewit.skeleton.api.permission.dto.PermissionPostDto;
 import com.dylandewit.skeleton.api.permission.models.Permission;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.NotImplementedException;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RestController
 @Api(tags = "Permissions", description = "All permission related endpoints")
 @RequestMapping(value = "/permissions")
-public class PermissionController extends BaseController<Permission, ViewPermissionDto, CreatePermissionDto> {
+public class PermissionController extends BaseController<Permission, PermissionGetDto, PermissionPostDto> {
 
     @Autowired
     public PermissionController(PermissionService permissionService) {
@@ -26,13 +26,13 @@ public class PermissionController extends BaseController<Permission, ViewPermiss
 
     @Override
     @ApiIgnore
-    public ViewPermissionDto update(Long id, @Valid CreatePermissionDto body) {
+    public PermissionGetDto update(Long id, @Valid PermissionPostDto body) {
         throw new NotImplementedException();
     }
 
     @Override
     @ApiIgnore
-    public ViewPermissionDto create(@Valid CreatePermissionDto body) {
+    public PermissionGetDto create(@Valid PermissionPostDto body) {
         throw new NotImplementedException();
     }
 

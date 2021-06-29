@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public abstract class BaseViewDto<T extends BaseModel> {
+public abstract class BaseGetDto<T extends BaseModel> {
     private Long id;
     private String createdBy;
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
 
-    public BaseViewDto(T t) {
+    public BaseGetDto(T t) {
         if (t == null) throw new IllegalArgumentException("First parameter in BaseViewDto may not be null");
 
         this.id = t.getId();

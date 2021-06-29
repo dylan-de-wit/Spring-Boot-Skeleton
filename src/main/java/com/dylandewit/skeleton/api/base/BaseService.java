@@ -1,7 +1,7 @@
 package com.dylandewit.skeleton.api.base;
 
-import com.dylandewit.skeleton.api.base.dto.BaseCreateDto;
-import com.dylandewit.skeleton.api.base.dto.BaseViewDto;
+import com.dylandewit.skeleton.api.base.dto.BaseGetDto;
+import com.dylandewit.skeleton.api.base.dto.BasePostDto;
 import com.dylandewit.skeleton.api.base.models.BaseModel;
 import com.dylandewit.skeleton.exception.exceptions.NotFoundException;
 import org.springframework.data.domain.Page;
@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Set;
 
-public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseViewDto<T>, CREATE_DTO extends BaseCreateDto<T>> {
+public abstract class BaseService<T extends BaseModel, VIEW_DTO extends BaseGetDto<T>, CREATE_DTO extends BasePostDto<T>> {
     protected final BaseRepository<T> repository;
 
     protected BaseService(BaseRepository<T> repository) {
