@@ -23,11 +23,11 @@ public enum Permissions {
     private final String category;
 
     @Getter
-    private final boolean adminOnly;
+    private final boolean isAdminPermission;
 
-    Permissions(String category, boolean adminOnly) {
+    Permissions(String category, boolean isAdminPermission) {
         this.category = category;
-        this.adminOnly = adminOnly;
+        this.isAdminPermission = isAdminPermission;
     }
 
     Permissions(String category) {
@@ -42,7 +42,7 @@ public enum Permissions {
 
     public static List<Permissions> nonAdmin() {
         return Arrays.stream(Permissions.values())
-                .filter(p -> !p.isAdminOnly())
+                .filter(p -> !p.isAdminPermission())
                 .collect(Collectors.toList());
     }
 }
