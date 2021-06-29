@@ -1,6 +1,6 @@
 package com.dylandewit.skeleton.integration.helpers;
 
-import com.dylandewit.skeleton.resources.permission.models.Permissions;
+import com.dylandewit.skeleton.api.permission.models.Permissions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.SneakyThrows;

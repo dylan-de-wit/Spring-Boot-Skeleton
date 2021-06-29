@@ -17,7 +17,7 @@ public class IncludesHelper {
     }
 
     public static List<String> fetchNestedIncludes(List<String> includes, String item) {
-        if (includes == null) throw new IllegalArgumentException("Includes should not be null");
+        if (includes == null) return List.of();
         if (item == null) throw new IllegalArgumentException("Item should not be null");
 
         Set<String> nestedIncludes = new HashSet<>();

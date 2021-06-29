@@ -1,8 +1,8 @@
 package com.dylandewit.skeleton.integration.seeders;
 
-import com.dylandewit.skeleton.resources.user.UserRepository;
-import com.dylandewit.skeleton.resources.user.models.User;
-import com.dylandewit.skeleton.resources.user.seeders.UserFaker;
+import com.dylandewit.skeleton.api.user.UserRepository;
+import com.dylandewit.skeleton.api.user.models.User;
+import com.dylandewit.skeleton.api.user.seeders.UserFaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 

@@ -1,11 +1,11 @@
 package com.dylandewit.skeleton.seeders;
 
 
-import com.dylandewit.skeleton.resources.base.seeders.Seeder;
-import com.dylandewit.skeleton.resources.permission.seeders.PermissionSeeder;
-import com.dylandewit.skeleton.resources.role.seeders.RoleSeeder;
-import com.dylandewit.skeleton.resources.user.seeders.FakeUserSeeder;
-import com.dylandewit.skeleton.resources.user.seeders.UserSeeder;
+import com.dylandewit.skeleton.api.base.seeders.Seeder;
+import com.dylandewit.skeleton.api.permission.seeders.PermissionSeeder;
+import com.dylandewit.skeleton.api.role.seeders.RoleSeeder;
+import com.dylandewit.skeleton.api.user.seeders.FakeUserSeeder;
+import com.dylandewit.skeleton.api.user.seeders.UserSeeder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

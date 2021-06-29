@@ -1,6 +1,6 @@
 package com.dylandewit.skeleton.annotations.unique_username;
 
-import com.dylandewit.skeleton.resources.user.UserService;
+import com.dylandewit.skeleton.api.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

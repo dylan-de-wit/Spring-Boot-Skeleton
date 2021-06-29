@@ -1,12 +1,12 @@
 package com.dylandewit.skeleton.integration.helpers;
 
-import com.dylandewit.skeleton.resources.permission.PermissionRepository;
-import com.dylandewit.skeleton.resources.permission.models.Permission;
-import com.dylandewit.skeleton.resources.permission.models.Permissions;
-import com.dylandewit.skeleton.resources.role.RoleRepository;
-import com.dylandewit.skeleton.resources.role.models.Role;
-import com.dylandewit.skeleton.resources.user.UserRepository;
-import com.dylandewit.skeleton.resources.user.models.User;
+import com.dylandewit.skeleton.api.permission.PermissionRepository;
+import com.dylandewit.skeleton.api.permission.models.Permission;
+import com.dylandewit.skeleton.api.permission.models.Permissions;
+import com.dylandewit.skeleton.api.role.RoleRepository;
+import com.dylandewit.skeleton.api.role.models.Role;
+import com.dylandewit.skeleton.api.user.UserRepository;
+import com.dylandewit.skeleton.api.user.models.User;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

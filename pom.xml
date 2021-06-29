@@ -65,9 +65,9 @@
 
         <!-- SECURITY -->
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>5.4.2</version>
+            <groupId>com.auth0</groupId>
+            <artifactId>auth0-spring-security-api</artifactId>
+            <version>1.4.0</version>
         </dependency>
         <!-- END SECURITY -->
 
