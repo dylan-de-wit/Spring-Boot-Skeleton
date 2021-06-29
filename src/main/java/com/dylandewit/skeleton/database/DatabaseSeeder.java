@@ -1,4 +1,4 @@
-package com.dylandewit.skeleton.seeders;
+package com.dylandewit.skeleton.database;
 
 
 import com.dylandewit.skeleton.api.base.seeders.Seeder;
@@ -44,8 +44,13 @@ public class DatabaseSeeder {
             return;
 
         log.info("Seeding database...");
-        seed(necessarySeeders, "Seeding necessary data...");
-        seed(fakeDataSeeders, "Seeding fake data...");
+
+        if (!necessarySeeders.isEmpty())
+            seed(necessarySeeders, "Seeding necessary data...");
+
+        if (!fakeDataSeeders.isEmpty())
+            seed(fakeDataSeeders, "Seeding fake data...");
+
         log.info("Done seeding...");
     }
 
